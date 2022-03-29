@@ -6,6 +6,8 @@ import serial
 ardSer=serial.Serial('COM5',baudrate=115200,timeout=1)         #resets the arduino
 time.sleep(3)                                                       #waits 3 seconds, enough time for the arduino to boot
 
+#testing git
+
 bgLength=20
 bgHeight=10
 radDisperse=bgLength/2
