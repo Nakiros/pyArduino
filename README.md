@@ -8,7 +8,7 @@ Hi. This is a repo for my journey of learning python.
 
     ->Is the folder where I hold the files made while following the introductory tutorial made by Paul McWhorter.
 
-    Link: https://www.youtube.com/watch?v=XCKWZAtKTnU&list=PLGs0VKk2DiYzguDvh5xk2XoX9V1VKP5Hv
+    Link: Learn Python for Beginners(https://www.youtube.com/watch?v=XCKWZAtKTnU&list=PLGs0VKk2DiYzguDvh5xk2XoX9V1VKP5Hv)
 
 ### vPython-PW
 
