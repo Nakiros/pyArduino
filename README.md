@@ -11,6 +11,12 @@ Link: [Learn Python for Beginners](https://www.youtube.com/watch?v=XCKWZAtKTnU&l
 
 #### Files:
 
+| File number   | File name       | Description                 |
+| ------------- | --------------- | --------------------------- |
+| 1.            | 1.helloWorld.py | my first ever python script |
+| 2.            | centered        | $12                         |
+| zebra stripes | are neat        | $1                          |
+
 1. 1.helloWorld.py - my first ever python script
 2. 2.ifStatements.py - as the name implies, with user input
 3. 3.evenOdd.py - homework for 2. Check if entered integer is even or odd. Modulo use.
@@ -39,6 +45,10 @@ Link: [Learn Python for Beginners](https://www.youtube.com/watch?v=XCKWZAtKTnU&l
 
 ->Is the folder where I hold the files made while following the tutorial made by Paul McWhorter on Visual Python.<br />
 Link: [Visual Python 3D Graphics and Animations](https://www.youtube.com/watch?v=MJiVtz4Uj7M&list=PLGs0VKk2DiYzGCOzBrMNSWEdd2CIGC0kJ)
+
+#### Files:
+
+1. 1.vPythonIntro.py - cube with
 
 ### pyArd-PW
 
