@@ -3,7 +3,7 @@ from vpython import*
 import numpy as np
 import time
 import serial
-ardSer=serial.Serial('COM5',baudrate=115200,timeout=1)         #resets the arduino
+ardSer=serial.Serial('COM7',baudrate=115200,timeout=1)         #resets the arduino
 time.sleep(3)                                                       #waits 3 seconds, enough time for the arduino to boot
 
 #testing git
