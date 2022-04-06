@@ -11,12 +11,6 @@ Link: [Learn Python for Beginners](https://www.youtube.com/watch?v=XCKWZAtKTnU&l
 
 #### Files:
 
-| File number   | File name       | Description                 |
-| ------------- | --------------- | --------------------------- |
-| 1.            | 1.helloWorld.py | my first ever python script |
-| 2.            | centered        | $12                         |
-| zebra stripes | are neat        | $1                          |
-
 1. 1.helloWorld.py - my first ever python script
 2. 2.ifStatements.py - as the name implies, with user input
 3. 3.evenOdd.py - homework for 2. Check if entered integer is even or odd. Modulo use.
@@ -48,9 +42,39 @@ Link: [Visual Python 3D Graphics and Animations](https://www.youtube.com/watch?v
 
 #### Files:
 
-1. 1.vPythonIntro.py - cube with
+1. 1.vPythonIntro.py - cube with ball bouncing from left wall to right wall
+2. 2.roomSimParam.py - size parametrized with vectors instead of length, height, etc.
+3. 3.roomSimParam2.py - roomSimParam.py but with 3 balls of different colors, size and speed parameters
+4. 4.roomSimParam3.py - roomSimParam2.py but with n(user input) balls of different colors, size and speed parameters (user input). The size of the room is also set by user input. **No checking** of size of balls vs room size.
+5. 5.myPiston.py - thermometer components
+6. 6.myThermo.py - basic thermometer demo. Temperature changes from -20 to 50 deg C. Difference from PaulW version: Color changes based on temperature and values are floats instead of ints. Also a mapping function translates temperature change to cylinder height change.
+7. 7.myThermometer.py - a variation of 6.myThermo.py - you can change the temperature shown by inputing a temperature in the range of -20 and 50degC. **No checks are made** to see if the input values is in the range.
+8. 8.myThermo2.py - insert n(user input) thermometers - only spawn the thermometers, equally spaced - a lot of user input. Transformed the Thermometer into a class to spawn multiple instances.
+9. 9.myThermo3.py - insert n(user input) thermometers - their temperature vary according to input parameters of deltaVar which represent the rate of change. **No checks are made** to see if the rate of change drives the 'mercury' beyond the logical threshold of the thermometer.
+10. 10.myThermo4.py - User input of temperature. Representation check is made to show maximum or minimum value if the user input a value which is not in the range of the specified thermometer range.
+11. 11.mixingColors.py - Color shuffle Costy version
+12. 12.mixingColorsPW.py - Color shuffle PaulW version
+13. 13.mixingColorsPW-improved.py - Color shuffle PaulW version with constant brightness
+14. 14.axisOrient.py - Orientation of objects using axis parameter
+15. 15.3DRotate.py - arrow with trail rotation along X, Y and Z
+16. 16.3DClockBase.py - Clock background build - minor tick made with better for loop (different from PaulW)
+17. 17.3DClockPWnCo.py - Wotking clock with fix hands and clippy movement of hour and minute hand
+18. 18.3DClock.py - Working clock with intermediate positions of the hour and minute hand
+19. 19.3DClock2.py - Clock with numbers and label
+20. 20.pyThonWidGet.py - Changing parameters of 3.roomSimParam2.py on the go
 
 ### pyArd-PW
 
 ->Is the folder where I hold the files made while following the tutorial made by Paul McWhorter on linking the well known Arduino to Python.<br />
 Link: [Free Tutorials: Using Python with Arduino](https://www.youtube.com/watch?v=flfuaZaKFCM&list=PLGs0VKk2DiYzWURfJCbCGPa8HI0APjBfo)
+
+#### Files:
+
+1. lesson3-1.py - receive data via serial
+2. lesson3-2.py - split multiple data in single variables
+3. lesson3-3.0.1-homework-dial-base.py - dial demo with in-place code to adjust for cases when input is higher than expected **No text on dial**
+4. lesson3-3.0.2-homework-dial-base.py - dial demo with in-place code to adjust for cases when input is higher than expected. Here the arrow remains at max and the dial turns red if value is out of dial bounds.
+5. lesson3-3.1-homework-dial-class.py - transformed the dial to a class and test the spawing of multiple dials with different parameters
+6. lesson3-3.2-homework-dial-class.py - getting multiple data from arduino and showing it on the multiple dials - data is translated using PaulW method (utf-8)
+7. lesson3-3.3.1.-hw-v4_test.py - testing to change the way data received from the arduino is interpreted
+8. lesson3-3.3.2.-homework-dial-class.py - modified the way the data received is translated (using ascii)

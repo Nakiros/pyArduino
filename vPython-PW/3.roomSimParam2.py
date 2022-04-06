@@ -56,7 +56,7 @@ zPosm3 = 1
 while True:
     rate(40)
 
-    if runRadioRed.checked == True:
+    for i in range(0, 3, 1):
         xPosm1 = xPosm1+deltaX1
         yPosm1 = yPosm1+deltaY1
         zPosm1 = zPosm1+deltaZ1
