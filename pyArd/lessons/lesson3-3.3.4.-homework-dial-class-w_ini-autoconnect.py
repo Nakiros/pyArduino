@@ -5,6 +5,12 @@ import time
 import serial
 import serial.tools.list_ports
 
+file = 'C:/Users/Costy/Documents/LEARN/pyArduino/pyArd/lessons/lesson3-3.3.3-prereq-testing.ini'
+config = ConfigParser(interpolation=None)
+config.read(file)
+
+lista=list(config.sections())
+
 def get_ports():
     ports = serial.tools.list_ports.comports()
     return ports
@@ -17,7 +23,7 @@ def findArduino(portsFound):
         port = foundPorts[i]
         strPort=str(port)
         
-        if 'CH340' in strPort:
+        if config['DEFAULT']['arduino'] in strPort:
             splitPort=strPort.split(' ')
             commPort = (splitPort[0])
 
@@ -37,16 +43,6 @@ print('DONE')
        
 time.sleep(3)
 
-file = 'C:/Users/Costy/Documents/LEARN/pyArduino/pyArd/lessons/lesson3-3.3.3-prereq-testing.ini'
-config = ConfigParser(interpolation=None)
-config.read(file)
-
-lista=list(config.sections())
-#print(lista)
-#print(len(lista))
-
-#for i in range(0,4,1):
-    #print(config[lista[i]]['inputMax'])
 #GET DATA FROM INI FILE
 bgLength=int(config['DEFAULT']['bgLength'])
 bgHeight=int(config['DEFAULT']['bgHeight'])
