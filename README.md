@@ -78,3 +78,4 @@ Link: [Free Tutorials: Using Python with Arduino](https://www.youtube.com/watch?
 6. lesson3-3.2-homework-dial-class.py - getting multiple data from arduino and showing it on the multiple dials - data is translated using PaulW method (utf-8)
 7. lesson3-3.3.1.-hw-v4_test.py - testing to change the way data received from the arduino is interpreted
 8. lesson3-3.3.2.-homework-dial-class.py - modified the way the data received is translated (using ascii)
+   #TODO add the updates

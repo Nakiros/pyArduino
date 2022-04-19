@@ -1,20 +1,56 @@
-#it works with arduino code PW-Lesson3-2-homeworkV2.ino
+from configparser import ConfigParser
 from vpython import*
 import numpy as np
 import time
 import serial
-ardSer=serial.Serial('COM7',baudrate=115200,timeout=1)         #resets the arduino
-time.sleep(3)                                                       #waits 3 seconds, enough time for the arduino to boot
+import serial.tools.list_ports
 
-#testing git
+file = 'C:/Users/Costy/Documents/LEARN/pyArduino/pyArd/lessons/lesson3-3.3.3-prereq-testing.ini'
+config = ConfigParser(interpolation=None)
+config.read(file)
 
-bgLength=20
-bgHeight=10
+lista=list(config.sections())
+
+def get_ports():
+    ports = serial.tools.list_ports.comports()
+    return ports
+
+def findArduino(portsFound):
+    commPort='None'
+    numConnection = len(portsFound)
+    
+    for i in range(0,numConnection):
+        port = foundPorts[i]
+        strPort=str(port)
+        
+        if config['DEFAULT']['arduino'] in strPort:
+            splitPort=strPort.split(' ')
+            commPort = (splitPort[0])
+
+    return commPort
+
+foundPorts = get_ports()
+connectPort = findArduino(foundPorts)
+
+if connectPort != 'None':
+    ardSer = serial.Serial(connectPort,baudrate = 115200, timeout=1)#resets the arduino
+    print('Connected to ' + connectPort)
+
+else:
+    print('Connection Issue!')
+
+print('DONE')
+       
+time.sleep(3)
+
+#GET DATA FROM INI FILE
+bgLength=int(config['DEFAULT']['bgLength'])
+bgHeight=int(config['DEFAULT']['bgHeight'])
 radDisperse=bgLength/2
-bgThick=.5
-majorTickW=.1
-majorTickL=1
-majorTickT=.2
+bgThick=float(config['DEFAULT']['bgThick'])
+majorTickW=float(config['DEFAULT']['majorTickW'])
+majorTickL=float(config['DEFAULT']['majorTickL'])
+majorTickT=float(config['DEFAULT']['majorTickT'])
 
 minorTickW=majorTickW/2
 minorTickT=majorTickT/2
@@ -82,10 +118,12 @@ class MultiDial:
 
 #BEGIN----PRE-RUN SETUP----INPUT DATA----
     #OFFSET CALCULATION--BEGIN
-NoOfDials= int(input('Please input number of dials: '))                     #Insert number of dials you want to show
+NoOfDials= len(lista)                    #Number of dials taken from length 'list' which contains the ini sections
+print('Number of dials:',NoOfDials)
 spawnOffset=[]                                                              #Use a list to catch the X offset postion of the dials
 if  NoOfDials>1:                                                            #If there are more than 1 dial
-    distDials=int(input('Please input the distance bewteen each dial. Enter '+str(bgLength)+'+desired gap between dials: '))   #Input the spacing between each of the dials. Each dial is 20 in length
+    distDials= int(config['DEFAULT']['distanceBetweenDials'])                                         #Get the spacing between each of the dials from ini file
+    print('Distance between each dial is:',distDials)
     for i in range(0,NoOfDials,1):                                          #Calculate for  each dial the distDials
         if NoOfDials % 2 == 1:                                              #If there is an odd number of dials (e.g. 5 dials: the 3rd on will be at x=0 teh 2nd and 4th wil be at -distDials and +OFFSET, the 1st and 5th will be at -2*distDials and 2*distDials)
             spawnOffset.append(-1*distDials*(int(NoOfDials/2)-i))           #calculate the offset this way and fill the list
@@ -110,21 +148,31 @@ for i in range(0, NoOfDials, 1):                                #insert dial par
         filler = '3rd'
     if i > 2:
         filler = str(i+1)+'th'
-    dialTitle_temp = input(filler+' dial title: ')
+
+    dialTitle_temp = config[lista[i]]['dialTitle']
+    print(filler+' dial title: '+dialTitle_temp)
     
-    print('Enter input characteristics')
-    inputMin=float(input(filler+' dial MIN input value: '))
-    inputMax=float(input(filler+' dial MAX input value: '))
-    unit_Temp=input(filler+' dial unit of measurement is: ')
+    print('Characteristics loading from ini file')
+    inputMin=float(config[lista[i]]['inputMin'])
+    print(filler+' dial MIN input value: ',inputMin)
+    inputMax=float(config[lista[i]]['inputMax'])
+    print(filler+' dial MIN input value: ',inputMax)
+    
+    unit_Temp=config[lista[i]]['unitOfMeasurement']
+    print(filler+' dial unit of measurement is: '+unit_Temp)
     
     print('Define the gradations')
-    noOfMTick_temp=int(input(filler+' dial number of MAJOR Ticks: '))
-    noOfmTick_temp=int(input(filler+' dial number of MINOR Ticks: '))
-    coloR_temp=float(input(filler+' dial MAJOR color - RED: '))
-    coloG_temp=float(input(filler+' dial MAJOR color - GREEN: '))
-    coloB_temp=float(input(filler+' dial MAJOR color - BLUE: '))
+    noOfMTick_temp=int(config[lista[i]]['noOfMTick_big'])
+    print(filler+' dial number of MAJOR Ticks:',noOfMTick_temp)
+    noOfmTick_temp=int(config[lista[i]]['noOfmTick_small'])
+    print(filler+' dial number of MINOR Ticks:',noOfmTick_temp)
+    coloR_temp=float(config[lista[i]]['coloR'])
+    coloG_temp=float(config[lista[i]]['coloG'])
+    coloB_temp=float(config[lista[i]]['coloB'])
+    print(filler+' dial MAJOR color - R_G_B:',coloR_temp,'_',coloG_temp,'_',coloB_temp)
     
-    answer=input('Do you want to spawn the dial/dials in default position/positions? Answer YES or NO.')
+    answer=config[lista[i]]['basePos']
+    print(filler+' dial basic position:'+answer)
     
     if answer == 'YES':
         if  NoOfDials>1:
@@ -134,11 +182,12 @@ for i in range(0, NoOfDials, 1):                                #insert dial par
         posY_temp=0
         posZ_temp=0
     elif answer == 'NO': 
-        posX_temp = float(input(filler+' dial posX: '))
-        posY_temp = float(input(filler+' dial posY: '))
-        posZ_temp = float(input(filler+' dial posZ: '))
+        posX_temp = float(config[lista[i]]['alterPosX'])
+        posY_temp = float(config[lista[i]]['alterPoSY'])
+        posZ_temp = float(config[lista[i]]['alterPosZ'])
+        print(filler+' dial alterpos X_Y_Z:',posX_temp,'_',posY_temp,'_',posZ_temp)
     else: 
-        print('Please enter YES or NO next time. Default YES was chosen. DO NOT ENTER Y,N or yes,no or y,n. Only YES,NO')
+        print('Please type YES or NO next time in the ini file. Default YES was chosen. DO NOT ENTER Y,N or yes,no or y,n. Only YES,NO')
         if  NoOfDials>1:
             posX_temp=spawnOffset[i]
         else:
