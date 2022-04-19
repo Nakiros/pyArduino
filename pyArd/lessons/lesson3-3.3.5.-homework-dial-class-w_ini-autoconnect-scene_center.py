@@ -4,6 +4,7 @@ import numpy as np
 import time
 import serial
 import serial.tools.list_ports
+import tkinter as tk
 
 file = 'C:/Users/Costy/Documents/LEARN/pyArduino/pyArd/lessons/lesson3-3.3.3-prereq-testing.ini'
 config = ConfigParser(interpolation=None)
@@ -202,6 +203,26 @@ for i in range(0, NoOfDials, 1):                                #insert dial par
    
 
 #END----PRE-RUN SETUP----INPUT DATA------
+
+
+def center_image(x):
+    if x.selected == '0':
+        scene.center=vector(0,0,0)
+    else:
+        for i in range(1, NoOfDials+1, 1):
+            if i==int(x.selected):
+                scene.center=vector(spawnOffset[i-1],0,0)
+
+camera_choice=[]
+for i in range(0, NoOfDials+1, 1):
+    striNG=str(i)
+    camera_choice.append(striNG)
+print(camera_choice)
+
+wtext(text='Camera select')
+menu(bind=center_image, choices=camera_choice)
+scene.append_to_caption('\n\n')
+
 
 while True:
     rate(5000)
