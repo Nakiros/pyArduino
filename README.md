@@ -78,4 +78,7 @@ Link: [Free Tutorials: Using Python with Arduino](https://www.youtube.com/watch?
 6. lesson3-3.2-homework-dial-class.py - getting multiple data from arduino and showing it on the multiple dials - data is translated using PaulW method (utf-8)
 7. lesson3-3.3.1.-hw-v4_test.py - testing to change the way data received from the arduino is interpreted
 8. lesson3-3.3.2.-homework-dial-class.py - modified the way the data received is translated (using ascii)
-   #TODO add the updates
+9. config_files.py and config.ini files used to learn about setting ini files
+10. lesson3-3.3.3-prereq-testing.py - used to test data read from ini file; lesson3-3.3.3-prereq-testing.ini used for the main program and future versions of it
+11. lesson3-3.3.3.-homework-dial-class-w_ini.py - modified to take all the input files from the ini file and not from user input in terminal
+12. lesson3-3.3.4.-homework-dial-class-w_ini-autoconnect.py - modified to autoconnect to the arduino by finding "CH340" in the com ports. lesson3-3.3.4.-serial_auto_connect.py is used to test the autoconnect part of the program. The modification is based on this [video](https://www.youtube.com/watch?v=DJD28uK5qIk)

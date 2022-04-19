@@ -11,6 +11,7 @@ config.read(file)
 
 lista=list(config.sections())
 
+#autofind arduino port-----BEGIN
 def get_ports():
     ports = serial.tools.list_ports.comports()
     return ports
@@ -40,6 +41,7 @@ else:
     print('Connection Issue!')
 
 print('DONE')
+#autofind arduino port-----END
        
 time.sleep(3)
 
@@ -122,7 +124,7 @@ NoOfDials= len(lista)                    #Number of dials taken from length 'lis
 print('Number of dials:',NoOfDials)
 spawnOffset=[]                                                              #Use a list to catch the X offset postion of the dials
 if  NoOfDials>1:                                                            #If there are more than 1 dial
-    distDials= int(config['DEFAULT']['distanceBetweenDials'])                                         #Get the spacing between each of the dials from ini file
+    distDials= int(config['DEFAULT']['distanceBetweenDials'])               #Get the spacing between each of the dials from ini file
     print('Distance between each dial is:',distDials)
     for i in range(0,NoOfDials,1):                                          #Calculate for  each dial the distDials
         if NoOfDials % 2 == 1:                                              #If there is an odd number of dials (e.g. 5 dials: the 3rd on will be at x=0 teh 2nd and 4th wil be at -distDials and +OFFSET, the 1st and 5th will be at -2*distDials and 2*distDials)
