@@ -82,3 +82,4 @@ Link: [Free Tutorials: Using Python with Arduino](https://www.youtube.com/watch?
 10. lesson3-3.3.3-prereq-testing.py - used to test data read from ini file; lesson3-3.3.3-prereq-testing.ini used for the main program and future versions of it
 11. lesson3-3.3.3.-homework-dial-class-w_ini.py - modified to take all the input files from the ini file and not from user input in terminal
 12. lesson3-3.3.4.-homework-dial-class-w_ini-autoconnect.py - modified to autoconnect to the arduino by finding "CH340" in the com ports. lesson3-3.3.4.-serial_auto_connect.py is used to test the autoconnect part of the program. The modification is based on this [video](https://www.youtube.com/watch?v=DJD28uK5qIk)
+13. lesson3-3.3.5.-homework-dial-class-w_ini-autoconnect-scene_center.py - modified to add tkinter camera control. Dropdown list according to number of dials. Selecting '0' centers the camera.
