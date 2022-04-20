@@ -83,3 +83,6 @@ Link: [Free Tutorials: Using Python with Arduino](https://www.youtube.com/watch?
 11. lesson3-3.3.3.-homework-dial-class-w_ini.py - modified to take all the input files from the ini file and not from user input in terminal
 12. lesson3-3.3.4.-homework-dial-class-w_ini-autoconnect.py - modified to autoconnect to the arduino by finding "CH340" in the com ports. lesson3-3.3.4.-serial_auto_connect.py is used to test the autoconnect part of the program. The modification is based on this [video](https://www.youtube.com/watch?v=DJD28uK5qIk)
 13. lesson3-3.3.5.-homework-dial-class-w_ini-autoconnect-scene_center.py - modified to add tkinter camera control. Dropdown list according to number of dials. Selecting '0' centers the camera.
+14. lesson10_AutoConnect_module.py -> module to use to connect automatically to arduino board
+15. lesson10-10.0.0.-Autoconnect_to_arduino_module_test.py -> test file to see if the autoconnect module works
+16. lesson10-10.0.1.-PassDataFromPyToArduino.PY -> simple ON/OFF commands from Python to Arduino to Turn ON/OFF the BUILTIN LED. Uses file: PW-Lesson10-PassData_F_Py_T_Ard.ino in Arduino_files.
